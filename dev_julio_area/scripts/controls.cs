@@ -26,7 +26,6 @@ public class controls : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.A))
         {
-
             transform.Translate(-1 * new Vector3(1, 0, 0) * Time.deltaTime * speed);
         }
         if (Input.GetKey(KeyCode.D))
@@ -35,14 +34,12 @@ public class controls : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Space))
         {
-            //transform.Translate()
             if (transform.position.y > 0)
             {
                 transform.position = Vector3.Lerp(
                     transform.position,
                     new Vector3(transform.position.x, -5, transform.position.z),
                     1);
-                    //terminar de verficar el desplazamiento smoth
             }
             else
             {
