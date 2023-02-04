@@ -9,7 +9,7 @@ public class FlameThrowerTurret : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        targetAcquired = GameObject.FindGameObjectWithTag("player").transform;
     }
 
     // Update is called once per frame

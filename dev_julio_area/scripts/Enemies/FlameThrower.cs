@@ -19,11 +19,16 @@ public class FlameThrower : MonoBehaviour
     void Start()
     {
         enemytarget = GetComponent<NavMeshAgent>();
+        baseLocation = GameObject.FindGameObjectWithTag("mother").transform;
+        checkUnderground = GameObject.FindGameObjectWithTag("player").GetComponent<player>();
+        playerLocation = GameObject.FindGameObjectWithTag("player").transform;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         // What should I chase?
         GetTarget();
     }

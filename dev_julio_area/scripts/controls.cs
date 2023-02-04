@@ -6,16 +6,23 @@ public class controls : MonoBehaviour
 {
     [SerializeField]
     private float speed = 5.0f;
-    private bool delayCheck = false;
+    private bool lerpControl = false;
+    private player auxLocalPlayer;
+    
+    [SerializeField]
+    private int limitMove;
+
+
     // Start is called before the first frame update
     void Start()
     {
-
+        auxLocalPlayer = (player)this.gameObject.GetComponent(typeof(player));
     }
 
     // Update is called once per frame
     void Update()
     {
+        //LIMITAR MOVIMIENTO HACIA EL ARBOL
         if (Input.GetKey(KeyCode.W))
         {
             transform.Translate(new Vector3(0, 0, 1) * Time.deltaTime * speed);
@@ -27,29 +34,50 @@ public class controls : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(-1 * new Vector3(1, 0, 0) * Time.deltaTime * speed);
+            if(transform.position.x < limitMove)
+            {
+                transform.position = new Vector3(
+                    limitMove,
+                    transform.position.y,
+                    transform.position.z
+                );
+            }
         }
         if (Input.GetKey(KeyCode.D))
         {
             transform.Translate(new Vector3(1, 0, 0) * Time.deltaTime * speed);
         }
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (transform.position.y > 0)
+            lerpControl = !lerpControl;
+        }
+        if (lerpControl == false)
+        {
+            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 1, transform.position.z), speed / 3 * Time.deltaTime);
+            if (auxLocalPlayer != null)
             {
-                transform.position = Vector3.Lerp(
-                    transform.position,
-                    new Vector3(transform.position.x, -5, transform.position.z),
-                    1);
-            }
-            else
-            {
-                transform.position = Vector3.Lerp(
-                    transform.position,
-                    new Vector3(transform.position.x, 1, transform.position.z),
-                    1);
+                auxLocalPlayer.isUnderground = false;
             }
         }
+        else
+        {
+            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, -5, transform.position.z), speed / 3 * Time.deltaTime);
+            if (auxLocalPlayer != null)
+            {
+                auxLocalPlayer.isUnderground = true;
+            }
+        }
+    }
 
-
+    private void moveLerp(int value)
+    {
+        while (transform.position.y != value)
+        {
+            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, value, transform.position.z), speed / 3 * Time.deltaTime);
+        }
+        lerpControl = false;
     }
 }
+
+
+
