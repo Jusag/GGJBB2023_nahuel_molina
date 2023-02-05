@@ -33,8 +33,9 @@ public class PlayerProjectile : MonoBehaviour
         {
             //Destroy(collision.gameObject);
             other.gameObject.GetComponent<enemy>().unitHealth -= damageToEnemy + powerUpDamage;
+            Destroy(this.gameObject);
         }
-        Destroy(this.gameObject);
+        
     }
 
     

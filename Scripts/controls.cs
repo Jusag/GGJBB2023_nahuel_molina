@@ -27,6 +27,14 @@ public class controls : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             transform.Translate(new Vector3(0, 0, 1) * Time.deltaTime * speed);
+            if (transform.position.z > 48)
+            {
+                transform.position = new Vector3(
+                    transform.position.x,
+                    transform.position.y,
+                    48
+                );
+            }
         }
         if (Input.GetKey(KeyCode.S))
         {
@@ -56,6 +64,14 @@ public class controls : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             transform.Translate(new Vector3(1, 0, 0) * Time.deltaTime * speed);
+            if (transform.position.x > 115)
+            {
+                transform.position = new Vector3(
+                    115,
+                    transform.position.y,
+                    transform.position.z
+                );
+            }
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {

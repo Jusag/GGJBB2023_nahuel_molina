@@ -32,6 +32,7 @@ public class player : MonoBehaviour
             gameObject.GetComponent<controls>().enabled = false;
             gameObject.GetComponent<MeshRenderer>().enabled = false;
             isUnderground = true;
+            life = 0;
         }
 
         if (lifeAux !=  life) 

@@ -16,6 +16,8 @@ public class enemy : MonoBehaviour
     {
         if (unitHealth <= 0) 
         {
+            GameObject.FindGameObjectWithTag("countTextUI").GetComponent<countinvaersText>().count++;
+            
             GameObject.FindGameObjectWithTag("player").GetComponent<attackMode>().enemiesList.Remove(this);
             Destroy(this.gameObject);
         }

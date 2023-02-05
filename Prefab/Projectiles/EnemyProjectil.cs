@@ -21,11 +21,11 @@ public class EnemyProjectil : MonoBehaviour
         if (gameObject.GetComponent<Rigidbody>())
         {
             gameObject.GetComponent<Rigidbody>().velocity = transform.forward * (pSpeed);
-        }        
+        }
         StartCoroutine(TimeDestroy());
     }
 
-    IEnumerator TimeDestroy() 
+    IEnumerator TimeDestroy()
     {
         yield return new WaitForSeconds(lifeTime);
         Destroy(this.gameObject);
@@ -33,21 +33,23 @@ public class EnemyProjectil : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if (pReloading == false) 
+        if (pReloading == false)
         {
             if (other.gameObject.GetComponent<player>())
             {
                 //Destroy(collision.gameObject);
-                other.gameObject.GetComponent<player>().life -= damageToPlayer;
+                if (other.gameObject.GetComponent<player>().life > 0)
+                    other.gameObject.GetComponent<player>().life -= damageToPlayer;
                 StartCoroutine(TimeReload());
             }
             if (other.gameObject.GetComponent<motherScript>())
             {
                 //Destroy(collision.gameObject);
-                other.gameObject.GetComponent<motherScript>().motherLife -= damageToPlayer;
+                if (other.gameObject.GetComponent<motherScript>().motherLife > 0)
+                    other.gameObject.GetComponent<motherScript>().motherLife -= damageToPlayer;
                 StartCoroutine(TimeReload());
             }
-        }        
+        }
     }
 
     IEnumerator TimeReload()

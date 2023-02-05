@@ -8,25 +8,30 @@ public class motherScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (motherLife < 0)
+            {
+                motherLife = 0;
+            }
     }
-    
+
     void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.GetComponent<enemy>())
+        if (collision.gameObject.GetComponent<enemy>())
         {
             Destroy(collision.gameObject);
             motherLife -= 50;
             Debug.Log(motherLife);
+            
+            
         }
     }
-    
+
     /*
     void OnTriggerEnter(Collider other)
     {
