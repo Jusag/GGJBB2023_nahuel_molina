@@ -7,11 +7,14 @@ public class player : MonoBehaviour
     public int life = 100;
     private int lifeAux;
     public bool isUnderground = false;
+    private AudioSource audioSource;
+    public AudioClip lifeLost;
 
     // Start is called before the first frame update
     void Start()
     {
         lifeAux = life;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -38,6 +41,7 @@ public class player : MonoBehaviour
         if (lifeAux !=  life) 
         {
             lifeAux = life;
+            audioSource.PlayOneShot(lifeLost);
         }
     }
     private void onMeshes()

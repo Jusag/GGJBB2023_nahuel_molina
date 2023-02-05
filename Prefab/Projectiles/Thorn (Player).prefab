@@ -4959,7 +4959,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pSpeed: 60
-  damageToEnemy: 10
+  damageToEnemy: 5
   powerUpDamage: 0
   lifeTime: 10
 --- !u!54 &2339740269287917201

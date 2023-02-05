@@ -80,6 +80,17 @@ public class controls : MonoBehaviour
                 paticles,
                 new Vector3(transform.position.x,0.1f,transform.position.z),
                 Quaternion.identity);
+
+            
+            if(GetComponent<player>().isUnderground)
+            {
+                GameObject.FindGameObjectWithTag("GameController").GetComponent<MusicControls>().istop();
+                
+            }  
+            else
+            {
+                GameObject.FindGameObjectWithTag("GameController").GetComponent<MusicControls>().isunder();
+            }  
         }
         if (lerpControl == false)
         {

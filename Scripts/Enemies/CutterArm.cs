@@ -14,6 +14,10 @@ public class CutterArm : MonoBehaviour
     private int magCount = 0;
     public int timeToReload;
     private bool isReloading = false;
+
+    private AudioSource audioSource;
+    public AudioClip pickUp;
+
     // Start is called before the first frame update
     void Start()
     {

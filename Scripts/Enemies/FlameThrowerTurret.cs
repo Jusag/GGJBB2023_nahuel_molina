@@ -14,11 +14,14 @@ public class FlameThrowerTurret : MonoBehaviour
     private int magCount = 0;
     public int timeToReload;
     private bool isReloading = false;
+    private AudioSource audioSource;
+    public AudioClip projectileSound;
 
     // Start is called before the first frame update
     void Start()
     {
         targetAcquired = GameObject.FindGameObjectWithTag("player").transform;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -38,6 +41,7 @@ public class FlameThrowerTurret : MonoBehaviour
             if (timer > delayShoot && magazineSize > magCount && isReloading == false)
             {
                 Instantiate(projectile, transform.position, transform.rotation);
+                GetComponent<AudioSource>().PlayOneShot(projectileSound);
                 timer = 0.0f;
                 magCount++;
 
