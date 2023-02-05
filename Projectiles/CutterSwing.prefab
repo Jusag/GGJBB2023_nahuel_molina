@@ -868,7 +868,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 2
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -1246,7 +1246,7 @@ ParticleSystem:
     curve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: -6.981317
+      scalar: -10.471975
       minScalar: 0.7853982
       maxCurve:
         serializedVersion: 2
@@ -4823,6 +4823,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1993707903775367299}
+  - component: {fileID: 3992344994152066337}
+  - component: {fileID: 3337231647772062986}
+  - component: {fileID: 755714930886081155}
   m_Layer: 0
   m_Name: CutterSwing
   m_TagString: Untagged
@@ -4845,8 +4848,53 @@ Transform:
   - {fileID: 1993707902759657858}
   - {fileID: 8949390119293326536}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3992344994152066337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993707903775367308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27c4e2bf753153d4db545358a79500b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pSpeed: 5
+  damageToPlayer: 10
+  lifeTime: 1
+  reloadTime: 1
+--- !u!65 &3337231647772062986
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993707903775367308}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 15, y: 3, z: 15}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &755714930886081155
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993707903775367308}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5648555645461754283
 GameObject:
   m_ObjectHideFlags: 0
@@ -5715,7 +5763,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 2
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -6093,7 +6141,7 @@ ParticleSystem:
     curve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: -6.981317
+      scalar: -10.471975
       minScalar: 0.7853982
       maxCurve:
         serializedVersion: 2

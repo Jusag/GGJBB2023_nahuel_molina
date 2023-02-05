@@ -4,24 +4,20 @@ using UnityEngine;
 
 public class enemy : MonoBehaviour
 {
-
-    [SerializeField]
-    int unitHealth;
-    [SerializeField]
-    int unitSpeed;
-    [SerializeField]
-    int unitDamage;
-
-
+    public int unitHealth;
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameObject.FindGameObjectWithTag("player").GetComponent<attackMode>().enemiesList.Add(this);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (unitHealth <= 0) 
+        {
+            GameObject.FindGameObjectWithTag("player").GetComponent<attackMode>().enemiesList.Remove(this);
+            Destroy(this.gameObject);
+        }
     }
 }

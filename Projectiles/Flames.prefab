@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4152685034995073969}
   - component: {fileID: 4152685034995073970}
   - component: {fileID: 4152685034995073971}
+  - component: {fileID: 8012365074445228391}
   - component: {fileID: 4152685034995073972}
   - component: {fileID: 4152685034995073968}
   - component: {fileID: 4152685034995073983}
@@ -35,7 +36,7 @@ Transform:
   m_Children:
   - {fileID: 4152685035601968286}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4152685034995073970
 MeshFilter:
@@ -87,6 +88,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8012365074445228391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4152685034995073973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27c4e2bf753153d4db545358a79500b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pSpeed: 40
+  damageToPlayer: 15
+  lifeTime: 4
+  reloadTime: 1
 --- !u!65 &4152685034995073972
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -127,7 +144,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &4152685035601968287
 GameObject:
@@ -245,7 +262,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 0.25
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -298,7 +315,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -414,7 +431,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -679,8 +696,8 @@ ParticleSystem:
     startRotation:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.2617994
-      minScalar: -0.2617994
+      scalar: 0.5235988
+      minScalar: -0.5235988
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -792,7 +809,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 10
+    angle: 20
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 0.5
@@ -997,7 +1014,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 20
+      scalar: 80
       minScalar: 10
       maxCurve:
         serializedVersion: 2

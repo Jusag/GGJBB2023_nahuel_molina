@@ -4920,6 +4920,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3485318579934760196}
+  - component: {fileID: 1012524804168147630}
+  - component: {fileID: 2339740269287917201}
   m_Layer: 0
   m_Name: Thorn (Player)
   m_TagString: Untagged
@@ -4942,5 +4944,37 @@ Transform:
   - {fileID: 3485318579063073717}
   - {fileID: 3485318578628409292}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1012524804168147630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3485318579934760199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d2e96b5d1def1146aaa7f50f0df8fb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pSpeed: 60
+  damageToEnemy: 10
+  powerUpDamage: 0
+  lifeTime: 10
+--- !u!54 &2339740269287917201
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3485318579934760199}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

@@ -8,7 +8,8 @@ public class controls : MonoBehaviour
     private float speed = 5.0f;
     private bool lerpControl = false;
     private player auxLocalPlayer;
-    
+    public GameObject paticles;
+
     [SerializeField]
     private int limitMove;
 
@@ -22,7 +23,7 @@ public class controls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //LIMITAR MOVIMIENTO HACIA EL ARBOL
+
         if (Input.GetKey(KeyCode.W))
         {
             transform.Translate(new Vector3(0, 0, 1) * Time.deltaTime * speed);
@@ -30,11 +31,20 @@ public class controls : MonoBehaviour
         if (Input.GetKey(KeyCode.S))
         {
             transform.Translate(-1 * new Vector3(0, 0, 1) * Time.deltaTime * speed);
+
+            if (transform.position.z < -38)
+            {
+                transform.position = new Vector3(
+                    transform.position.x,
+                    transform.position.y,
+                    -38
+                );
+            }
         }
         if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(-1 * new Vector3(1, 0, 0) * Time.deltaTime * speed);
-            if(transform.position.x < limitMove)
+            if (transform.position.x < limitMove)
             {
                 transform.position = new Vector3(
                     limitMove,
@@ -50,6 +60,10 @@ public class controls : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             lerpControl = !lerpControl;
+            Instantiate(
+                paticles,
+                new Vector3(transform.position.x,0.1f,transform.position.z),
+                Quaternion.identity);
         }
         if (lerpControl == false)
         {

@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class player : MonoBehaviour
 {
-    [SerializeField]
-    private int life = 0;
+    public int life = 100;
+    private int lifeAux;
     public bool isUnderground = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        life = 100;
+        lifeAux = life;
     }
-    
 
     // Update is called once per frame
     void Update()
     {
-        if(isUnderground)
+        Debug.Log(life);
+        if (isUnderground)
         {
             offMeshes();
         }
@@ -26,14 +26,28 @@ public class player : MonoBehaviour
         {
             onMeshes();
         }
+
+        if (life <= 0)
+        {
+            gameObject.GetComponent<controls>().enabled = false;
+            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            isUnderground = true;
+        }
+
+        if (lifeAux !=  life) 
+        {
+            lifeAux = life;
+        }
     }
     private void onMeshes()
     {
-        GameObject.FindGameObjectWithTag("floor").GetComponent<MeshRenderer>().enabled = true;
+        //GameObject.FindGameObjectWithTag("floor").GetComponent<MeshRenderer>().enabled = true;
+        GameObject.FindGameObjectWithTag("floor").GetComponent<Terrain>().enabled = true;
     }
     private void offMeshes()
     {
-        GameObject.FindGameObjectWithTag("floor").GetComponent<MeshRenderer>().enabled = false;
+        //GameObject.FindGameObjectWithTag("floor").GetComponent<MeshRenderer>().enabled = false;
+        GameObject.FindGameObjectWithTag("floor").GetComponent<Terrain>().enabled = false;
     }
 
 }
